@@ -1,0 +1,38 @@
+{
+    "table_name": "orders",
+    "columns": [
+        {
+            "column_name": "order_id",
+            "data_type": "INTEGER",
+            "not_null": false,
+            "default_value": null
+        },
+        {
+            "column_name": "customer_id",
+            "data_type": "INTEGER",
+            "not_null": false,
+            "default_value": null
+        },
+        {
+            "column_name": "order_date",
+            "data_type": "TEXT",
+            "not_null": false,
+            "default_value": null
+        },
+        {
+            "column_name": "total_amount",
+            "data_type": "REAL",
+            "not_null": false,
+            "default_value": null
+        },
+        {
+            "column_name": "shipping_address",
+            "data_type": "TEXT",
+            "not_null": false,
+            "default_value": null
+        }
+    ],
+    "primary_keys": [
+        "order_id"
+    ]
+}

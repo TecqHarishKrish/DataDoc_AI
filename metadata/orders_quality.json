@@ -1,0 +1,28 @@
+{
+    "total_rows": 16,
+    "column_completeness": {
+        "order_id": {
+            "non_null_count": 16,
+            "completeness_percent": 100.0
+        },
+        "customer_id": {
+            "non_null_count": 16,
+            "completeness_percent": 100.0
+        },
+        "order_date": {
+            "non_null_count": 16,
+            "completeness_percent": 100.0
+        },
+        "total_amount": {
+            "non_null_count": 16,
+            "completeness_percent": 100.0
+        },
+        "shipping_address": {
+            "non_null_count": 13,
+            "completeness_percent": 81.25
+        }
+    },
+    "duplicate_primary_keys": 0,
+    "freshness_column": "order_date",
+    "last_updated": "2024-02-27"
+}

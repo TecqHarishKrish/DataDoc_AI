@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# SQLite database
+datadoc_demo.db
+
+# Streamlit cache
+.streamlit/
+
+# Node modules (VERY IMPORTANT)
+ui/node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db

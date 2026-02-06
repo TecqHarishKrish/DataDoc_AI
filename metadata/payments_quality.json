@@ -1,0 +1,28 @@
+{
+    "total_rows": 16,
+    "column_completeness": {
+        "payment_id": {
+            "non_null_count": 16,
+            "completeness_percent": 100.0
+        },
+        "order_id": {
+            "non_null_count": 16,
+            "completeness_percent": 100.0
+        },
+        "payment_method": {
+            "non_null_count": 16,
+            "completeness_percent": 100.0
+        },
+        "payment_status": {
+            "non_null_count": 16,
+            "completeness_percent": 100.0
+        },
+        "paid_at": {
+            "non_null_count": 16,
+            "completeness_percent": 100.0
+        }
+    },
+    "duplicate_primary_keys": 0,
+    "freshness_column": "payment_status",
+    "last_updated": "SUCCESS"
+}

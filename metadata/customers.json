@@ -1,0 +1,38 @@
+{
+    "table_name": "customers",
+    "columns": [
+        {
+            "column_name": "customer_id",
+            "data_type": "INTEGER",
+            "not_null": false,
+            "default_value": null
+        },
+        {
+            "column_name": "name",
+            "data_type": "TEXT",
+            "not_null": false,
+            "default_value": null
+        },
+        {
+            "column_name": "email",
+            "data_type": "TEXT",
+            "not_null": false,
+            "default_value": null
+        },
+        {
+            "column_name": "city",
+            "data_type": "TEXT",
+            "not_null": false,
+            "default_value": null
+        },
+        {
+            "column_name": "created_at",
+            "data_type": "TEXT",
+            "not_null": false,
+            "default_value": null
+        }
+    ],
+    "primary_keys": [
+        "customer_id"
+    ]
+}

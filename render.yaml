@@ -1,0 +1,59 @@
+services:
+  # PostgreSQL Database
+  - type: postgres
+    name: datadoc-db
+    databaseName: datadoc_ai
+    user: datadoc_user
+    plan: free
+    ipAllowList: []
+
+  # Backend API
+  - type: web
+    name: datadoc-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m uvicorn backend_server:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: DB_HOST
+        fromDatabase:
+          name: datadoc-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: datadoc-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: datadoc-db
+          property: databaseName
+      - key: DB_USER
+        fromDatabase:
+          name: datadoc-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: datadoc-db
+          property: password
+      - key: GROQ_API_KEY
+        sync: false
+    healthCheckPath: /health
+
+  # Streamlit Frontend
+  - type: web
+    name: datadoc-frontend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m streamlit run streamlit_app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: BACKEND_URL
+        fromService:
+          name: datadoc-backend
+          type: web
+          property: url
+    healthCheckPath: /_stcore/health

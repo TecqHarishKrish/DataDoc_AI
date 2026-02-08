@@ -19,7 +19,13 @@ os.makedirs(AI_DOCS_DIR, exist_ok=True)
 # In PowerShell run once:
 # setx GROQ_API_KEY "your_real_key_here"
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+# Initialize Groq client safely
+api_key = os.getenv("GROQ_API_KEY")
+if api_key:
+    client = Groq(api_key=api_key)
+else:
+    client = None
+    print("⚠️ GROQ_API_KEY not found. AI summaries will be disabled.")
 
 
 def load_json(path):
@@ -27,6 +33,9 @@ def load_json(path):
         return json.load(f)
 
 def generate_table_summary(table_name):
+    if not client:
+        return f"🤖 AI summaries are disabled. Please set GROQ_API_KEY environment variable to enable AI-powered table summaries for {table_name}."
+    
     # Load metadata and quality files
     meta_path = os.path.join(METADATA_DIR, f"{table_name}.json")
     quality_path = os.path.join(METADATA_DIR, f"{table_name}_quality.json")
